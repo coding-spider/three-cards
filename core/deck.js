@@ -2,6 +2,7 @@
 
 const Card = require('./card');
 const { SUIT } = require('./constants');
+const { getRandomNumberBetween } = require('./utils');
 
 class Deck {
 
@@ -25,7 +26,12 @@ class Deck {
     }
 
     shuffle() {
-
+        for (let i = 0; i < this.cards.length; i++) {
+            let j = getRandomNumberBetween(i, this.cards.length - i - 1);
+            let temp = this.cards[i];
+            this.cards[i] = this.cards[j];
+            this.cards[j] = temp;
+        }
     }
 
     remainingCards() {
