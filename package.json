@@ -4,6 +4,7 @@
   "description": "Three Card Game",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "mocha ./specs/**/*.spec.js"
   },
   "repository": {

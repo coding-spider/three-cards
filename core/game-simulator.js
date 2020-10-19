@@ -20,7 +20,7 @@ function simulateGame() {
 }
 
 function findWinner(game) {
-    let winners = game.getWinners();
+    let winners = game.getWinner();
 
     if (winners.length == 0) {
         return new Error(`Invalid State`);
