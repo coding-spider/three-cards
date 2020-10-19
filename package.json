@@ -1,0 +1,24 @@
+{
+  "name": "three-cards",
+  "version": "1.0.0",
+  "description": "Three Card Game",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./specs/**/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coding-spider/three-cards.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coding-spider/three-cards/issues"
+  },
+  "homepage": "https://github.com/coding-spider/three-cards#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "4.2.0",
+    "mocha": "8.2.0"
+  }
+}
