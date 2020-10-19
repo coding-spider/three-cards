@@ -1,9 +1,8 @@
 'use strict';
 
 class Card {
-    isAvailable = false;
-
     constructor(faceValue, suit) {
+        this.isAvailable = false;
         this.faceValue = faceValue;
         this.suit = suit;
     }
