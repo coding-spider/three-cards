@@ -25,12 +25,14 @@ class Deck {
         this.cards = cards;
     }
 
-    shuffle() {
-        for (let i = 0; i < this.cards.length; i++) {
-            let j = getRandomNumberBetween(i, this.cards.length - i - 1);
-            let temp = this.cards[i];
-            this.cards[i] = this.cards[j];
-            this.cards[j] = temp;
+    shuffle(rounds = 3) {
+        while (rounds-- > 0) {
+            for (let i = 0; i < this.cards.length; i++) {
+                let j = getRandomNumberBetween(i, this.cards.length - i - 1);
+                let temp = this.cards[i];
+                this.cards[i] = this.cards[j];
+                this.cards[j] = temp;
+            }
         }
     }
 
