@@ -2,7 +2,7 @@
 
 class Card {
     constructor(faceValue, suit) {
-        this.isAvailable = false;
+        this.isAvailable = true;
         this.faceValue = faceValue;
         this.suit = suit;
     }
