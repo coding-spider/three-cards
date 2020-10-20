@@ -35,4 +35,7 @@ function findWinner(game) {
 
 }
 
+const deck = new Deck();
+console.log(deck.cards);
+
 module.exports = simulateGame;

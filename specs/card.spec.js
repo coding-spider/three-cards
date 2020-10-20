@@ -12,7 +12,7 @@ describe("Card", function () {
     });
 
     it("should have face value of 4", function () {
-        assert.equal(card.faceValue, 4);
+        assert.equal(card.value, 4);
     });
 
     it("should be a spade card", function () {

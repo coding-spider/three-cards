@@ -1,10 +1,11 @@
 'use strict';
 
 class Card {
-    constructor(faceValue, displayValue, suit) {
+    constructor(value, displayValue, score, suit) {
         this.isAvailable = true;
-        this.faceValue = faceValue;
+        this.value = value;
         this.displayValue = displayValue;
+        this.score = score;
         this.suit = suit;
     }
 }
