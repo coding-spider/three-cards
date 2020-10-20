@@ -1,5 +1,7 @@
 'use strict';
 
+const ScoreCalculator = require('./ScoreCalculator');
+
 class Hand {
     constructor() {
         this.cards = [];
@@ -11,8 +13,7 @@ class Hand {
 
     score() {
         // Score Calculator Logic
-        let score = 0;
-        return score;
+        return ScoreCalculator.calculate(this.cards);
     }
 }
 

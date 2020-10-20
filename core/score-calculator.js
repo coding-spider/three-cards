@@ -3,23 +3,22 @@
 class ScoreCalculator {
     constructor() { }
 
-    static calculate() {
-        this.checkTrail()
-    }
+    static calculate(cards) {
+        let trailScoreCalculator = new TrailScoreCalculator();
+        let sequenceScoreCalculator = new SequenceScoreCalculator();
+        let pairScoreCalculator = new PairScoreCalculator();
+        let topScoreCalculator = new TopScoreCalculator();
 
-    addCard(card) {
-        this.cards.push(card);
-    }
+        trailScoreCalculator.setNext(sequenceScoreCalculator);
+        sequenceScoreCalculator.setNext(pairScoreCalculator);
+        pairScoreCalculator.setNext(topScoreCalculator);
 
-    score() {
-        // Score Calculator Logic
-        let score = 0;
-        return score;
+        return trailScoreCalculator.calculate(cards);
     }
 }
 
 
-class TrailScoreCalculagor {
+class TrailScoreCalculator {
     constructor() {
         this.boost = 100000;
         this.next = null;
@@ -29,14 +28,13 @@ class TrailScoreCalculagor {
         this.next = fn;
     }
 
-    calculate(hand) {
-        let cards = hand.cards;
+    calculate(cards) {
         if (cards.length === 3 && cards[0].value == cards[1].value && cards[1].value == cards[2].value) {
             return cards.reduce(function (sum, card) {
                 return sum + (card.score * this.boost);
             }, 0);
         }
-        return this.next(hand);
+        return this.next.calculate(cards);
     }
 }
 
@@ -51,8 +49,7 @@ class SequenceScoreCalculator {
         this.next = fn;
     }
 
-    calculate(hand) {
-        let cards = hand.cards;
+    calculate(cards) {
         if (cards.length === 3) {
             cards.sort(function (a, b) { return a.value - b.value; });
             if (cards[0].value - cards[1].value == -1 && cards[1].value - cards[2].value == -1) {
@@ -61,7 +58,7 @@ class SequenceScoreCalculator {
                 }, 0);
             }
         }
-        return this.next(hand);
+        return this.next.calculate(cards);
     }
 }
 
@@ -75,8 +72,7 @@ class PairScoreCalculator {
         this.next = fn;
     }
 
-    calculate(hand) {
-        let cards = hand.cards;
+    calculate(cards) {
         if (cards.length === 3) {
             if (cards[0].value == cards[1].value || cards[1].value == cards[2].value || cards[0].value == cards[2].value) {
                 return cards.reduce(function (sum, card) {
@@ -84,7 +80,7 @@ class PairScoreCalculator {
                 }, 0);
             }
         }
-        return this.next(hand);
+        return this.next.calculate(cards);
     }
 }
 
@@ -94,14 +90,11 @@ class TopScoreCalculator {
         this.next = null;
     }
 
-    calculate(hand) {
-        let cards = hand.cards;
+    calculate(cards) {
         return cards.reduce(function (sum, card) {
             return sum + (card.score * this.boost);
         }, 0);
     }
 }
-
-
 
 module.exports = ScoreCalculator;
