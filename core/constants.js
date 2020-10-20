@@ -9,7 +9,8 @@ const CONSTANTS = {
     },
     CARDS_IN_HAND: 3,
     MAX_CARDS_IN_A_SUIT: 13,
-    DEFAULT_NUMBER_OF_PLAYERS: 4
+    DEFAULT_NUMBER_OF_PLAYERS: 4,
+    DISPLAY_VALUES: ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 }
 
 module.exports = CONSTANTS;

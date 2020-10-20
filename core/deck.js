@@ -1,7 +1,7 @@
 'use strict';
 
 const Card = require('./card');
-const { SUIT, MAX_CARDS_IN_A_SUIT, CARDS_IN_HAND } = require('./constants');
+const { SUIT, MAX_CARDS_IN_A_SUIT, CARDS_IN_HAND, DISPLAY_VALUES } = require('./constants');
 const { getRandomNumberBetween } = require('./utils');
 
 class Deck {
@@ -18,7 +18,9 @@ class Deck {
         let cards = [];
         for (let i = 1; i <= MAX_CARDS_IN_A_SUIT; i++) {
             for (let j = 0; j < suits.length; j++) {
-                let card = new Card(i, suits[j]);
+                const faceValue = i;
+                const displayValue = DISPLAY_VALUES[i - 1];
+                let card = new Card(faceValue, displayValue, suits[j]);
                 cards.push(card);
             }
         }
