@@ -1,5 +1,7 @@
 'use strict';
 
+const { BOOST_LEVELS } = require('./constants');
+
 class ScoreCalculator {
     constructor() { }
 
@@ -20,7 +22,7 @@ class ScoreCalculator {
 
 class TrailScoreCalculator {
     constructor() {
-        this.boost = 100000;
+        this.boost = BOOST_LEVELS.TrailScoreCalculator;
         this.next = null;
     }
 
@@ -41,7 +43,7 @@ class TrailScoreCalculator {
 
 class SequenceScoreCalculator {
     constructor() {
-        this.boost = 10000;
+        this.boost = BOOST_LEVELS.SequenceScoreCalculator;
         this.next = null;
     }
 
@@ -64,7 +66,7 @@ class SequenceScoreCalculator {
 
 class PairScoreCalculator {
     constructor() {
-        this.boost = 100;
+        this.boost = BOOST_LEVELS.PairScoreCalculator;
         this.next = null;
     }
 
@@ -86,7 +88,7 @@ class PairScoreCalculator {
 
 class TopScoreCalculator {
     constructor() {
-        this.boost = 1;
+        this.boost = BOOST_LEVELS.TopScoreCalculator;
         this.next = null;
     }
 
