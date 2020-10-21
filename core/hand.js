@@ -31,6 +31,10 @@ class Hand {
         }
         console.log(`${this.name} ::: ${str}`);
     }
+
+    resetAndAddCard(card) {
+        this.cards = [card];
+    }
 }
 
 module.exports = Hand;

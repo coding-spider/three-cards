@@ -34,8 +34,8 @@ class Game {
         let possibleWinners = this.hands.filter(h => !h.hasLost);
 
         // Calculate Score
-        for (let hand of possibleWinners) {
-            hand.calculateScore();
+        for (let possibleWinner of possibleWinners) {
+            possibleWinner.calculateScore();
         }
 
         let maxScore = Math.max.apply(Math, possibleWinners.map(function (possibleWinner) { return possibleWinner.score; }))
@@ -55,6 +55,16 @@ class Game {
 
     playRound() {
 
+        let possibleWinners = this.hands.filter(h => !h.hasLost);
+
+        if (this.deck.remainingCards() < possibleWinners.length) {
+            throw new Error(`Cards are less than possible winners. Cannot proceed!`)
+        }
+
+        for (let possibleWinner of possibleWinners) {
+            let dealthCard = this.deck.dealCard();
+            possibleWinner.resetAndAddCard(dealthCard);
+        }
     }
 }
 
