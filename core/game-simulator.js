@@ -17,7 +17,8 @@ function simulateGame() {
     let winner = null;
     try {
         winner = findWinner(game);
-        console.log('Winner:::', winner);
+        console.log('********** Winner **********');
+        winner.displayHand();
     } catch (e) {
         console.error(e);
     }
@@ -32,7 +33,7 @@ function findWinner(game) {
         return new Error(`Invalid State`);
     } else if (winners.length == 1) {
         // Winner found;
-        return winner[0];
+        return winners[0];
     } else {
         // There is a tie
         game.playRound(winners);

@@ -38,9 +38,7 @@ class Game {
             hand.calculateScore();
         }
 
-        let maxScore = possibleWinners.reduce(function (a, b) {
-            return Math.max(a.score, b.score);
-        });
+        let maxScore = Math.max.apply(Math, possibleWinners.map(function (possibleWinner) { return possibleWinner.score; }))
 
         for (let possibleWinner of possibleWinners) {
             // If score matching winning score then add to winners array
