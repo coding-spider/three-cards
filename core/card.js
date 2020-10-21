@@ -1,12 +1,19 @@
 'use strict';
 
+const { SCORES, DISPLAY_VALUES } = require('./constants');
+
 class Card {
-    constructor(value, displayValue, score, suit) {
+    constructor(displayValue, suit) {
+        const idx = DISPLAY_VALUES.indexOf(String(displayValue));
+        if (idx == -1) {
+            throw new Error(`Invalid ${displayValue} - ${suit}`);
+        }
+
         this.isAvailable = true;
-        this.value = value;
         this.displayValue = displayValue;
-        this.score = score;
         this.suit = suit;
+        this.value = idx + 1;
+        this.score = SCORES[idx];
     }
 }
 

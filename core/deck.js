@@ -18,10 +18,8 @@ class Deck {
         let cards = [];
         for (let i = 1; i <= MAX_CARDS_IN_A_SUIT; i++) {
             for (let j = 0; j < suits.length; j++) {
-                const value = i;
                 const displayValue = DISPLAY_VALUES[i - 1];
-                const score = SCORES[i - 1];
-                let card = new Card(value, displayValue, score, suits[j]);
+                let card = new Card(displayValue, suits[j]);
                 cards.push(card);
             }
         }
