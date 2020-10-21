@@ -1,6 +1,6 @@
 'use strict';
 
-const ScoreCalculator = require('./ScoreCalculator');
+const ScoreCalculator = require('./score-calculator.js');
 
 class Hand {
     constructor(name) {
@@ -22,6 +22,14 @@ class Hand {
 
     markLost() {
         this.hasLost = true;
+    }
+
+    displayHand() {
+        let str = '';
+        for (let card of this.cards) {
+            str += `|${card.suit}-${card.displayValue}`
+        }
+        console.log(`${this.name} ::: ${str}`);
     }
 }
 

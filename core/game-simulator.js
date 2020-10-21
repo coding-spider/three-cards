@@ -9,6 +9,11 @@ function simulateGame() {
     let game = new Game();
     game.deal();
 
+    // display All hands
+    for (let hand of game.hands) {
+        hand.displayHand();
+    }
+
     let winner = null;
     try {
         winner = findWinner(game);
@@ -21,7 +26,7 @@ function simulateGame() {
 }
 
 function findWinner(game) {
-    let winners = game.getWinner();
+    let winners = game.findWinners();
 
     if (winners.length == 0) {
         return new Error(`Invalid State`);
@@ -37,6 +42,5 @@ function findWinner(game) {
 }
 
 const deck = new Deck();
-console.log(deck.cards);
 
 module.exports = simulateGame;

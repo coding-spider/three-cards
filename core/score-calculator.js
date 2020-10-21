@@ -30,7 +30,7 @@ class TrailScoreCalculator {
 
     calculate(cards) {
         if (cards.length === 3 && cards[0].value == cards[1].value && cards[1].value == cards[2].value) {
-            return cards.reduce(function (sum, card) {
+            return cards.reduce((sum, card) => {
                 return sum + (card.score * this.boost);
             }, 0);
         }
@@ -53,7 +53,7 @@ class SequenceScoreCalculator {
         if (cards.length === 3) {
             cards.sort(function (a, b) { return a.value - b.value; });
             if (cards[0].value - cards[1].value == -1 && cards[1].value - cards[2].value == -1) {
-                return cards.reduce(function (sum, card) {
+                return cards.reduce((sum, card) => {
                     return sum + (card.score * this.boost);
                 }, 0);
             }
@@ -75,7 +75,7 @@ class PairScoreCalculator {
     calculate(cards) {
         if (cards.length === 3) {
             if (cards[0].value == cards[1].value || cards[1].value == cards[2].value || cards[0].value == cards[2].value) {
-                return cards.reduce(function (sum, card) {
+                return cards.reduce((sum, card) => {
                     return sum + (card.score * this.boost);
                 }, 0);
             }
@@ -91,7 +91,7 @@ class TopScoreCalculator {
     }
 
     calculate(cards) {
-        return cards.reduce(function (sum, card) {
+        return cards.reduce((sum, card) => {
             return sum + (card.score * this.boost);
         }, 0);
     }
