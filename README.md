@@ -1,6 +1,11 @@
 # three-cards
 Three Card Game
 
+# How to setup?
+ - clone the repo
+ - `cd three-cards`
+ - `npm install`
+
 # How to run?
 `node index.js`
 
