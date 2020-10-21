@@ -54,7 +54,7 @@ class SequenceScoreCalculator {
             cards.sort(function (a, b) { return a.value - b.value; });
             if (cards[0].value - cards[1].value == -1 && cards[1].value - cards[2].value == -1) {
                 return cards.reduce((sum, card) => {
-                    return sum + (card.score * this.boost);
+                    return sum + (card.value * this.boost);
                 }, 0);
             }
         }
