@@ -1,8 +1,5 @@
 'use strict';
 
-const Card = require('./card');
-const Deck = require('./deck');
-
 const Game = require('./game');
 
 function simulateGame() {
@@ -19,11 +16,10 @@ function simulateGame() {
         winner = findWinner(game);
         console.log('********** Winner **********');
         winner.displayHand();
+        console.log('********** Winner **********');
     } catch (e) {
         console.error(e);
     }
-
-    console.log('End Game');
 }
 
 function findWinner(game) {
@@ -41,7 +37,5 @@ function findWinner(game) {
     }
 
 }
-
-const deck = new Deck();
 
 module.exports = simulateGame;

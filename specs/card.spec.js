@@ -15,8 +15,4 @@ describe("Card", function () {
         assert.equal(card.value, 4);
     });
 
-    it("should be a spade card", function () {
-        assert.equal(card.suit, 'Spade1');
-    });
-
 });
