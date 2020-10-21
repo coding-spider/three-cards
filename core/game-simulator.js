@@ -7,6 +7,7 @@ const Game = require('./game');
 
 function simulateGame() {
     let game = new Game();
+    game.deal();
 
     let winner = null;
     try {
